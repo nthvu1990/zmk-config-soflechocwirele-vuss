@@ -1303,64 +1303,490 @@
 
 
 
-
 / {
+    behaviors {
+        // Mod Morph
+        // RGB
+
+        rgb_bri_sat_inc: rgb_bri_sat_inc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_BRIGHTNESS_SATURATION_INCREASE";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_BRI>;
+
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        rgb_bri_sat_dec: rgb_bri_sat_dec {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_BRIGHTNESS_SATURATION_DECREASE";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_SAD>, <&rgb_ug RGB_BRD>;
+
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        rgb_inc: rgb_inc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_INCREASE";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUI>, <&rgb_bri_sat_inc>;
+
+            mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL)>;
+        };
+
+        rgb_dec: rgb_dec {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_DECREASE";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUD>, <&rgb_bri_sat_dec>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // System Functions  
+
+        ret_menu: ret_menu {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RETURN_MENU";
+            #binding-cells = <0>;
+            bindings = <&kp RET>, <&kp K_APPLICATION>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Special Characters - Capitalizations
+
+        fada_a: fada_a {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FADA_A";
+            #binding-cells = <0>;
+            bindings = <&smfada_a>, <&lfada_a>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ogonek_a: ogonek_a {
+            compatible = "zmk,behavior-mod-morph";
+            label = "OGONEK_A";
+            #binding-cells = <0>;
+            bindings = <&smogo_a>, <&logo_a>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        umlaut_a: umlaut_a {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UMLAUT_A";
+            #binding-cells = <0>;
+            bindings = <&smumlaut_a>, <&lumlaut_a>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fada_e: fada_e {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FADA_E";
+            #binding-cells = <0>;
+            bindings = <&smfada_e>, <&lfada_e>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ogonek_e: ogonek_e {
+            compatible = "zmk,behavior-mod-morph";
+            label = "OGONEK_E";
+            #binding-cells = <0>;
+            bindings = <&smogo_e>, <&logo_e>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fada_i: fada_i {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FADA_I";
+            #binding-cells = <0>;
+            bindings = <&smfada_i>, <&lfada_i>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fada_o: fada_o {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FADA_O";
+            #binding-cells = <0>;
+            bindings = <&smfada_o>, <&lfada_o>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        umlaut_o: umlaut_o {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UMLAUT_O";
+            #binding-cells = <0>;
+            bindings = <&smumlaut_o>, <&lumlaut_o>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fada_u: fada_u {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FADA_U";
+            #binding-cells = <0>;
+            bindings = <&smfada_u>, <&lfada_u>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        umlaut_u: umlaut_u {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UMLAUT_U";
+            #binding-cells = <0>;
+            bindings = <&smumlaut_u>, <&lumlaut_u>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        acute_c: acute_c {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ACUTE_C";
+            #binding-cells = <0>;
+            bindings = <&smacute_c>, <&lacute_c>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dark_l: dark_l {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DARK_L";
+            #binding-cells = <0>;
+            bindings = <&smdark_l>, <&ldark_l>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        acute_n: acute_n {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ACUTE_N";
+            #binding-cells = <0>;
+            bindings = <&smacute_n>, <&lacute_n>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        tilde_n: tilde_n {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TILDE_N";
+            #binding-cells = <0>;
+            bindings = <&smtil_n>, <&ltil_n>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        acute_s: acute_s {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ACUTE_S";
+            #binding-cells = <0>;
+            bindings = <&smacute_s>, <&lacute_s>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        acute_z: acute_z {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ACUTE_Z";
+            #binding-cells = <0>;
+            bindings = <&smacute_z>, <&lacute_z>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot_z: dot_z {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_Z";
+            #binding-cells = <0>;
+            bindings = <&smdot_z>, <&ldot_z>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Special Characters - Other
+
+        lb_euro: lb_euro {
+            compatible = "zmk,behavior-mod-morph";
+            label = "POUND_EURO";
+            #binding-cells = <0>;
+            bindings = <&uk_pnd>, <&euro>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Encoder
+
+        rgb_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "RGB_ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_inc>, <&rgb_dec>;
+        };
+
+        tab_browser: tab_browser {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "TAB_BROWSER";
+            #sensor-binding-cells = <0>;
+            bindings = <&tab_left>, <&tab_right>;
+        };
+
+        // Tap Dance
+
+        cc: cc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COLOR_CYCLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings =
+                <&rgb_ug RGB_COLOR_HSB(0,100,20)>,
+                <&rgb_ug RGB_COLOR_HSB(10,100,20)>,
+                <&rgb_ug RGB_COLOR_HSB(35,100,20)>,
+                <&rgb_ug RGB_COLOR_HSB(120,100,20)>,
+                <&rgb_ug RGB_COLOR_HSB(240,100,20)>,
+                <&rgb_ug RGB_COLOR_HSB(285,100,20)>;
+        };
+
+        clcw: clcw {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CAPS_LOCK_CAPS_WORD";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp CLCK>, <&caps_word>;
+        };
+
+        lscw: lscw {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LEFT_SHIFT_CAPS_WORD";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&caps_word>;
+        };
+
+        rscw: rscw {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RIGHT_SHIFT_CAPS_WORD";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RSHFT>, <&caps_word>;
+        };
+
+        stm: stm {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SHIFT_TASK_MANAGER";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&tm>;
+        };
+
+        pwr: pwr {
+            compatible = "zmk,behavior-tap-dance";
+            label = "POWER_COMMANDS";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RSHFT>, <&slp>, <&rst>, <&off>;
+        };
+
+        td_btr: td_btr {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_BLUE_TOOTH_RELEASE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp ESC>, <&bt BT_CLR>;
+        };
+
+        pscode: pscode {
+            compatible = "zmk,behavior-tap-dance";
+            label = "POWER_SHELL_CODE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F5>, <&kp F8>;
+        };
+
+        td_ll_l3: td_ll_l3 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_LEFT_LAYER_LAYER_3";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 1>, <&sl 3>;
+        };
+
+        td_rl_l3: td_rl_l3 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_RIGHT_LAYER_LAYER_3";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 2>, <&sl 3>;
+        };
+
+        td_sp_a: td_sp_a {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_SPECIAL_A";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&fada_a>, <&ogonek_a>, <&umlaut_a>;
+        };
+
+        td_sp_e: td_sp_e {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_SPECIAL_E";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&fada_e>, <&ogonek_e>;
+        };
+
+        td_sp_o: td_sp_o {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_SPECIAL_O";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&fada_o>, <&umlaut_o>;
+        };
+
+        td_sp_u: td_sp_u {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_SPECIAL_U";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&fada_u>, <&umlaut_u>;
+        };
+
+        td_sp_n: td_sp_n {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_SPECIAL_N";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&acute_n>, <&tilde_n>;
+        };
+
+        td_sp_s: td_sp_s {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_SPECIAL_S";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&acute_s>, <&essette_s>;
+        };
+
+        td_sp_z: td_sp_z {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_SPECIAL_Z";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&acute_z>, <&dot_z>;
+        };
+
+        td_lt: td_lt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LESS_THEN_DOUBLE_LEFT_MARKS";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LT>, <&dbl_left>;
+        };
+
+        td_gt: td_gt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "GREATER_THAN_DOUBLE_RIGHT_MARKS";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp GT>, <&dbl_right>;
+        };
+
+        lwin_cad: lwin_cad {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LEFT_WINDOWS_CTRL_ALT_DEL";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LGUI>, <&cad>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-// ------------------------------------------------------------------------------------------------------------------
-// |  `    |  1  |  2  |  3   |  4   |  5   |                         |  6   |  7    |  8    |  9   |   0   |       |
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                         |  Y   |  U    |  I    |  O   |   P   | BKSPC |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                         |  H   |  J    |  K    |  L   |   ;   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |        | ExtPw |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//               | GUI | ALT  | CTRL | LOWER|  ENTER |        | SPACE | RAISE| CTRL  | ALT   | GUI  |
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                    |  6   |  7    |  8    |  9   |   0   | DEL   |
+            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                    |  Y   |  U    |  I    |  O   |   P   | BKSPC |
+            // | CAPS  |  A  |  S  |  D   |  F   |  G   |                    |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |MUTE SPK|  |ClS  TAB|  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE  | RAISE| CTRL  | ALT   | GUI  |
+
             bindings = <
-&kp GRAVE &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                              &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &none
-&kp ESC   &kp Q  &kp W    &kp E    &kp R     &kp T                               &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
-&kp TAB   &kp A  &kp S    &kp D    &kp F     &kp G                               &kp H  &kp J     &kp K     &kp L    &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X    &kp C    &kp V     &kp B  &kp C_MUTE &ext_power EP_TOG &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-                 &kp LGUI &kp LALT &kp LCTRL &mo 1  &kp RET    &kp SPACE         &mo 2  &kp RCTRL &kp RALT  &kp RGUI
+&kp ESC         &kp N1  &kp N2     &kp N3    &kp N4     &kp N5                            &kp N6  &kp N7     &kp N8     &kp N9      &kp N0    &kp BACKSPACE
+&kp TAB         &kp Q   &kp W      &kp E     &kp R      &kp T                             &kp Y   &kp U      &kp I      &kp O       &kp P     &kp DELETE
+&kp LEFT_SHIFT  &kp A   &kp S      &kp D     &kp F      &kp G                             &kp H   &kp J      &kp K      &kp L       &kp SEMI  &kp SQT
+&kp LCTRL       &kp Z   &kp X      &kp C     &kp V      &kp B   &close_tab    &kp C_MUTE  &kp N   &kp M      &kp COMMA  &kp DOT     &kp FSLH  &kp PRINTSCREEN
+                        &lwin_cad  &kp LALT  &kp LCTRL  &mo 1   &kp SPACE     &kp RETURN  &mo 2   &kp RCTRL  &tab_left  &tab_right
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
 
         lower_layer {
-// TODO: Some binds are waiting for shifted keycode support.
-// ------------------------------------------------------------------------------------------------------------
-// |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
-// | `     |   1 |   2 |   3  |   4  |   5  |                   |   6  |   7   |   8   |   9  |    0  |  F12  |
-// |       |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   |   |
-// |       |  =  |  -  |  +   |  {   |  }   |        |  |       |  [   |  ]    |  ;    |  :   |   \   |       |
-//               |     |      |      |      |        |  |       |      |       |       |      |
+            // ------------------------------------------------------------------------------------------------------------
+            // |BTCLR| BT1  | BT2  |  BT3  |  BT4  |  BT5 |                | HUE+ |  =  |   /   |   *  |   -   | EFF+ |
+            // |BRI+ | PSCR | INS  |   ↑   |   @   |   %  |                | HUE- |  7  |   8   |   9  |   +   | BKSP |
+            // |BRI- | RGB  |  ←   |   ↓   |   →   |   $  |                | SAT+ |  4  |   5   |   6  |   +   | SPD+ |
+            // |TASK |BT/USB|      |  PREV |  NEXT |   #  |PL/PS |  |      | SAT- |  1  |   2   |   3  | ENTER | SPD- |
+            //              |      |       |       |      |      |  |      |  0   |  0  |   0   |   .  |
+
             bindings = <
-&trans    &kp F1    &kp F2    &kp F3      &kp F4    &kp F5                    &kp F6    &kp F7   &kp F8          &kp F9    &kp F10   &kp F11
-&kp GRAVE &kp N1    &kp N2    &kp N3      &kp N4    &kp N5                    &kp N6    &kp N7   &kp N8          &kp N9    &kp N0    &kp F12
-&trans    &kp EXCL  &kp AT    &kp HASH    &kp DLLR  &kp PRCNT                 &kp CARET &kp AMPS &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &kp PIPE
-&trans    &kp EQUAL &kp MINUS &kp KP_PLUS &kp LBRC  &kp RBRC  &trans   &trans &kp LBKT  &kp RBKT &kp SEMI        &kp COLON &kp BSLH  &trans
-                    &trans    &trans      &trans    &trans    &trans   &trans &trans    &trans   &trans          &trans
+&td_btr          &bt BT_SEL 0     &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                              &rgb_ug RGB_HUI  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &rgb_ug RGB_EFF
+&rgb_ug RGB_BRI  &kp PSCRN        &kp INS       &kp UP        &kp AT        &kp PRCNT                                 &rgb_ug RGB_HUD  &kp N7        &kp N8         &kp N9           &kp KP_PLUS   &trans
+&rgb_ug RGB_BRD  &rgb_ug RGB_TOG  &kp LEFT      &kp DOWN      &kp RIGHT     &kp DLLR                                  &rgb_ug RGB_SAI  &kp N4        &kp N5         &kp N6           &kp KP_PLUS   &rgb_ug RGB_SPI
+&stm             &out OUT_TOG     &trans        &kp C_PREV    &kp C_NEXT    &kp HASH      &kp C_PLAY_PAUSE    &trans  &rgb_ug RGB_SAD  &kp N1        &kp N2         &kp N3           &kp KP_ENTER  &rgb_ug RGB_SPD
+                                  &trans        &trans        &trans        &trans        &kp TAB             &trans  &zoomin          &zoomout      &kp N0         &kp DOT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&tab_browser>, <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         raise_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |BTCLR| BT1  | BT2  |  BT3  |  BT4  |  BT5 |                 |      |      |       |      |       |       |
-// |     | INS  | PSCR | GUI   |       |      |                 | PGUP |      |   ^   |      |       |       |
-// |     | ALT  | CTRL | SHIFT |       | CAPS |                 | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
-// |     | UNDO | CUT  | COPY  | PASTE |      |      |   | RGB  |      |      |       |      |       |       |
-//              |      |       |       |      |      |   |      |      |      |       |      |
+            // TODO: Some binds are waiting for shifted keycode support.
+            // ------------------------------------------------------------------------------------------------------------
+            // |    F1 |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
+            // |       |  `  |  ~  |  <   |  >   |  ?   |                   |  *   |  {    |  }    | HOME |  END  |       |
+            // |       |  !  |  @  |  #   |  $   |  %   |                   |  _   |  (    |  )    |  ;   |   |   | COLOR |
+            // |       |  =  |  -  |  +   |  &   |  |   |  RGB   |  |       |  ^   |  [    |  ]    |  :   |   \   | POWER |
+            //               |     |      |      |      |  CODE  |  |       |      |       |       |      |
+
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                      &trans    &trans    &trans   &trans    &trans  &trans
-&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                            &kp PG_UP &trans    &kp UP   &trans    &kp N0  &trans
-&trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                          &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &kp DEL &kp BSPC
-&trans     &kp K_UNDO   &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans  &trans   &rgb_ug RGB_TOG  &trans    &trans    &trans   &trans    &trans  &trans
-                        &trans       &trans       &trans       &trans  &trans   &trans           &trans    &trans    &trans   &trans
+&kp F1  &kp F2     &kp F3     &kp F4       &kp F5    &kp F6                                &kp F7     &kp F8    &kp F9    &kp F10    &kp F11   &kp F12
+&trans  &kp GRAVE  &kp TILDE  &td_lt       &td_gt    &kp QMARK                             &kp ASTRK  &kp LBRC  &kp RBRC  &kp HOME   &kp END   &trans
+&schwa  &kp EXCL   &kp AT     &kp HASH     &kp DLLR  &kp PRCNT                             &kp UNDER  &kp LPAR  &kp RPAR  &kp SEMI   &kp PIPE  &cc
+&trans  &kp EQUAL  &kp MINUS  &kp KP_PLUS  &kp AMPS  &kp PIPE   &rgb_ug RGB_TOG    &trans  &kp CARET  &kp LBKT  &kp RBKT  &kp COLON  &kp BSLH  &pwr
+                   &trans     &trans       &trans    &mo 3      &pscode            &trans  &trans     &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&rgb_encoder &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        gaeilge_layer {
+            // TODO: Some binds are waiting for shifted keycode support.
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |  ¡  |  °  |  £   |  ¢   |   ±  |                   |      |       |       |      |       |       |
+            // |       |     |     |  é   |      |      |                   |      |   ú   |   í   |   ó  |       |       |
+            // |       |  á  |  ś  |      |      |      |                   |      |       |       |   ł  |       |       |
+            // |       |  ź  |     |  ć   |      |      |        |  |       |  ń   |       |       |      |   ¿   |       |
+            //               |     |      |      |      |        |  |       |      |       |       |      |
+
+            bindings = <
+&trans  &inv_exc  &degree   &lb_euro  &us_cent  &plus_min                    &trans    &trans    &trans   &trans    &trans     &trans
+&trans  &trans    &trans    &td_sp_e  &trans    &trans                       &trans    &td_sp_u  &fada_i  &td_sp_o  &trans     &trans
+&trans  &td_sp_a  &td_sp_s  &trans    &trans    &trans                       &trans    &trans    &trans   &dark_l   &trans     &trans
+&trans  &td_sp_z  &trans    &acute_c  &trans    &trans     &trans    &trans  &td_sp_n  &trans    &trans   &trans    &inv_ques  &trans
+                  &trans    &trans    &trans    &trans     &trans    &trans  &trans    &trans    &trans   &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
